@@ -1,10 +1,3 @@
-/**
-* Template Name: Mentor
-* Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
 (function() {
   "use strict";
@@ -134,3 +127,19 @@
   window.addEventListener("load", initSwiper);
 
 })();
+
+
+  document
+    .getElementById("toggle-courses-btn")
+    .addEventListener("click", function () {
+      const hiddenCourses = document.getElementById("hidden-courses");
+      const button = this;
+
+      if (hiddenCourses.style.display === "none") {
+        hiddenCourses.style.display = "flex";
+        button.textContent = "See Less Courses";
+      } else {
+        hiddenCourses.style.display = "none";
+        button.textContent = "See More Courses";
+      }
+    });
