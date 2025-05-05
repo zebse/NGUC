@@ -143,3 +143,30 @@
         button.textContent = "See More Courses";
       }
     });
+
+//Image lazy load ...
+document.addEventListener("DOMContentLoaded", function () {
+  const lazyImages = [].slice.call(document.querySelectorAll("img.lazy-load"));
+
+  if ("IntersectionObserver" in window) {
+    let observer = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          let img = entry.target;
+          img.src = img.dataset.src;
+          img.classList.remove("lazy-load");
+          observer.unobserve(img);
+        }
+      });
+    });
+
+    lazyImages.forEach(function (img) {
+      observer.observe(img);
+    });
+  } else {
+    // Fallback: Load all images immediately
+    lazyImages.forEach(function (img) {
+      img.src = img.dataset.src;
+    });
+  }
+});

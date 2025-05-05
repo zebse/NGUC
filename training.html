@@ -28,7 +28,7 @@
       href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
       rel="stylesheet"
     />
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
     <link
       href="assets/vendor/glightbox/css/glightbox.min.css"
       rel="stylesheet"
@@ -107,7 +107,11 @@
               data-aos-delay="100"
             >
               <div class="course-item">
-                <img src="assets/img/java.jpg" class="img-fluid" alt="..." />
+                <img
+                  data-src="assets/img/java.jpg"
+                  class="img-fluid lazy-load"
+                  alt="Java training"
+                />
                 <div class="course-content">
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
@@ -116,7 +120,7 @@
                   </div>
 
                   <h3>
-                    <a href="course-details.html">Learn Java Today!</a>
+                    <a href="course-detail/java.html">Learn Java Today!</a>
                   </h3>
                   <p class="description">
                     Master Java with our comprehensive training program,
@@ -138,7 +142,8 @@
               data-aos-delay="200"
             >
               <div class="course-item">
-                <img src="assets/img/web.jpg" class="img-fluid" alt="..." />
+                <img data-src="assets/img/web.jpg" 
+                class="img-fluid lazy-load" alt="Web development" />
                 <div class="course-content">
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
@@ -147,7 +152,7 @@
                   </div>
 
                   <h3>
-                    <a href="course-details.html">Web and Internet</a>
+                    <a href="course-detail/web.html">Web and Internet</a>
                   </h3>
                   <p class="description">
                     Unlock the power of web development with our hands-on
@@ -168,7 +173,8 @@
               data-aos-delay="300"
             >
               <div class="course-item">
-                <img src="assets/img/data.jpg" class="img-fluid" alt="..." />
+                <img data-src="assets/img/data.jpg" 
+                class="img-fluid lazy-load" alt="Data Analytics" />
                 <div class="course-content">
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
@@ -177,7 +183,7 @@
                   </div>
 
                   <h3>
-                    <a href="course-details.html">Data Analytics with Python</a>
+                    <a href="course-detail/data.html">Data Analytics with Python</a>
                   </h3>
                   <p class="description">
                     Transform data into insights with our Data Analytics
@@ -198,7 +204,8 @@
               data-aos-delay="300"
             >
               <div class="course-item">
-                <img src="assets/img/app.jpg" class="img-fluid" alt="..." />
+                <img data-src="assets/img/app.jpg" 
+                class="img-fluid lazy-load" alt="Mobile app" />
                 <div class="course-content">
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
@@ -207,7 +214,7 @@
                   </div>
 
                   <h3>
-                    <a href="course-details.html">Mobile App Development</a>
+                    <a href="course-detail/app.html">Mobile App Development</a>
                   </h3>
                   <p class="description">
                     Build the next big app with our Mobile App Development
@@ -256,5 +263,30 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const lazyImages = document.querySelectorAll("img.lazy-load");
+      
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove("lazy-load");
+                observer.unobserve(img);
+              }
+            });
+          });
+      
+          lazyImages.forEach(img => observer.observe(img));
+        } else {
+          // Fallback for older browsers
+          lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+          });
+        }
+      });
+      </script>      
   </body>
 </html>

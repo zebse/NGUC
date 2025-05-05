@@ -136,16 +136,16 @@
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">
-                    <a href="">Marketing Strategies</a>
+                    <a href="">Welcoming Event</a>
                   </h5>
-                  <p class="fst-italic text-center">
-                    Sunday, November 15th at 7:00 pm
-                  </p>
+                  <p class="fst-italic text-center">January 11th, 2024</p>
                   <p class="card-text">
-                    Sed ut perspiciatis unde omnis iste natus error sit
-                    voluptatem doloremque laudantium, totam rem aperiam, eaque
-                    ipsa quae ab illo inventore veritatis et quasi architecto
-                    beatae vitae dicta sunt explicabo
+                    The Student Union organized a welcoming event for incoming
+                    freshmen at New Generation University College. The event
+                    included department and club introductions to help new
+                    students make informed decisions about their time on campus.
+                    We were pleased to have guest speakers from Canada who
+                    shared insights to contribute to the university's goals
                   </p>
                 </div>
               </div>
@@ -188,5 +188,40 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Select the row where the event cards are located
+        const row = document.querySelector(
+          ".container[data-aos='fade-up'] .row"
+        );
+
+        // Create a new event card for the graduation ceremony
+        const newEventCard = document.createElement("div");
+        newEventCard.className = "col-md-6 d-flex align-items-stretch";
+        newEventCard.innerHTML = `
+    <div class="card">
+      <div class="card-img">
+        <img src="assets/img/events-item-3.jpg" alt="Graduation Ceremony" />
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">
+          <a href="#">Graduation Ceremony Announcement</a>
+        </h5>
+        <p class="fst-italic text-center">
+          Friday, April 24th at 9:00 am
+        </p>
+        <p class="card-text">
+          We are pleased to inform you that the graduation ceremony for 2025 Academic Year will take place tomorrow, April 24, 2025. The event will be held at NGUC Addis Ababa campus. We look forward to celebrating the achievements of our graduating students. All are warmly invited to attend and share in this special occasion. 
+          <br/>
+          <b><em>Congratulations to the Class of 2025.</em></b>
+        </p>
+      </div>
+    </div>
+  `;
+
+        // Append the new event card to the row
+        row.appendChild(newEventCard);
+      });
+    </script>
   </body>
 </html>

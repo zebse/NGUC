@@ -11,7 +11,7 @@
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #37423b; /* Color for headings, subheadings and title throughout the website */
   /*--accent-color: #5fcf80; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --accent-color:#003087;
+  --accent-color:#040720;
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -513,6 +513,7 @@ h6 {
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
+
 .footer {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -613,49 +614,6 @@ h6 {
   margin-bottom: 5px;
 }
 
-.footer .footer-newsletter .newsletter-form {
-  margin-top: 30px;
-  margin-bottom: 15px;
-  padding: 6px 8px;
-  position: relative;
-  border-radius: 50px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
-  display: flex;
-  background-color: var(--surface-color);
-  transition: 0.3s;
-}
-
-.footer .footer-newsletter .newsletter-form:focus-within {
-  border-color: var(--accent-color);
-}
-
-.footer .footer-newsletter .newsletter-form input[type=email] {
-  border: 0;
-  padding: 4px 8px;
-  width: 100%;
-  background-color: var(--surface-color);
-  color: var(--default-color);
-}
-
-.footer .footer-newsletter .newsletter-form input[type=email]:focus-visible {
-  outline: none;
-}
-
-.footer .footer-newsletter .newsletter-form input[type=submit] {
-  border: 0;
-  font-size: 16px;
-  padding: 0 20px 2px 20px;
-  margin: -7px -8px -7px 0;
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  transition: 0.3s;
-  border-radius: 50px;
-}
-
-.footer .footer-newsletter .newsletter-form input[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
-}
-
 .footer .copyright {
   padding-top: 25px;
   padding-bottom: 25px;
@@ -698,11 +656,29 @@ h6 {
 
 @keyframes animate-preloader {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(1); /* Start with no rotation and normal size */
+    opacity: 1; /* Fully opaque */
+    border-color: #3498db; /* Start with a blue color (adjust as needed) */
   }
-
+  25% {
+    transform: rotate(90deg) scale(1.2); /* Rotate 90deg and slightly scale up */
+    opacity: 0.8; /* Slightly fade */
+    border-color: #2ecc71; /* Shift to green */
+  }
+  50% {
+    transform: rotate(180deg) scale(0.8); /* Half rotation, scale down */
+    opacity: 0.6; /* More faded */
+    border-color: #e74c3c; /* Shift to red */
+  }
+  75% {
+    transform: rotate(270deg) scale(1.1); /* 3/4 rotation, scale up again */
+    opacity: 0.8; /* Fade back in */
+    border-color: #f1c40f; /* Shift to yellow */
+  }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(360deg) scale(1); /* Full rotation, back to normal size */
+    opacity: 1; /* Fully opaque again */
+    border-color: #3498db; /* Back to blue */
   }
 }
 
@@ -1145,6 +1121,16 @@ section,
 /*--------------------------------------------------------------
 # Courses Section
 --------------------------------------------------------------*/
+.course-item {
+  margin-bottom: 30px; /* Vertical spacing */
+}
+
+.courses .col-lg-4,
+.courses .col-md-6 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .courses .course-item {
   background-color: var(--surface-color);
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
@@ -1841,6 +1827,7 @@ section,
   padding: 10px 15px;
   box-shadow: none;
   border-radius: 0;
+  resize: none;
   color: var(--default-color);
   background-color: color-mix(in srgb, var(--background-color), transparent 50%);
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
