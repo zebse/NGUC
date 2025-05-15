@@ -45,24 +45,11 @@
         class="container-fluid container-xl position-relative d-flex align-items-center"
       >
         <a href="index.html" class="logo d-flex align-items-center me-auto">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.png" alt=""> -->
-          <h1 class="sitename">NGUC</h1>
+          <img src="assets/img/logo.png" alt="" />
         </a>
-
         <nav id="navmenu" class="navmenu">
-          <ul>
-            <li>
-              <a href="index.html">Home<br /></a>
-            </li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="academic.html">Academics</a></li>
-            <!-- <li><a href="trainers.html">Trainers</a></li> -->
-            <li><a href="events.html">News and Events</a></li>
-            <li><a href="training.html" class="active">Training</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+          <ul></ul>
+          <!-- Empty ul to be populated by JavaScript -->
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
       </div>
@@ -142,8 +129,11 @@
               data-aos-delay="200"
             >
               <div class="course-item">
-                <img data-src="assets/img/web.jpg" 
-                class="img-fluid lazy-load" alt="Web development" />
+                <img
+                  data-src="assets/img/web.jpg"
+                  class="img-fluid lazy-load"
+                  alt="Web development"
+                />
                 <div class="course-content">
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
@@ -173,8 +163,11 @@
               data-aos-delay="300"
             >
               <div class="course-item">
-                <img data-src="assets/img/data.jpg" 
-                class="img-fluid lazy-load" alt="Data Analytics" />
+                <img
+                  data-src="assets/img/data.jpg"
+                  class="img-fluid lazy-load"
+                  alt="Data Analytics"
+                />
                 <div class="course-content">
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
@@ -183,7 +176,9 @@
                   </div>
 
                   <h3>
-                    <a href="course-detail/data.html">Data Analytics with Python</a>
+                    <a href="course-detail/data.html"
+                      >Data Analytics with Python</a
+                    >
                   </h3>
                   <p class="description">
                     Transform data into insights with our Data Analytics
@@ -204,8 +199,11 @@
               data-aos-delay="300"
             >
               <div class="course-item">
-                <img data-src="assets/img/app.jpg" 
-                class="img-fluid lazy-load" alt="Mobile app" />
+                <img
+                  data-src="assets/img/app.jpg"
+                  class="img-fluid lazy-load"
+                  alt="Mobile app"
+                />
                 <div class="course-content">
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
@@ -266,10 +264,10 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const lazyImages = document.querySelectorAll("img.lazy-load");
-      
+
         if ("IntersectionObserver" in window) {
           const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
+            entries.forEach((entry) => {
               if (entry.isIntersecting) {
                 const img = entry.target;
                 img.src = img.dataset.src;
@@ -278,15 +276,15 @@
               }
             });
           });
-      
-          lazyImages.forEach(img => observer.observe(img));
+
+          lazyImages.forEach((img) => observer.observe(img));
         } else {
           // Fallback for older browsers
-          lazyImages.forEach(img => {
+          lazyImages.forEach((img) => {
             img.src = img.dataset.src;
           });
         }
       });
-      </script>      
+    </script>
   </body>
 </html>
