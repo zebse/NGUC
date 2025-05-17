@@ -13,7 +13,7 @@ function displayCourses() {
                 <div class="course-item">
                     <div class="course-content">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <p class="price"><i class="bi bi-cpu"></i></p>
+                            <p class="price"><i class="bi bi-award"></i></p>
                             <p class="category">${course.category}</p>
                         </div>
                         <h3><a href="course-details.html">${course.title}</a></h3>

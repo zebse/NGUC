@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { name: "About us", href: "about.html" },
         { name: "Academics", href: "academic.html" },
         { name: "Alumni", href: "#" },
-        { name: "Registrar", href: "#" },
+        { name: "Registrar", href: "http://196.188.42.93:2123/", target:"_blank" },
         { name: "Admission", href: "#" },
       ],
     },
@@ -192,6 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const dropdownLi = document.createElement("li");
           const dropdownA = document.createElement("a");
           dropdownA.href = dropdownItem.href;
+          dropdownA.target = dropdownItem.target;
           dropdownA.textContent = dropdownItem.name;
           dropdownLi.appendChild(dropdownA);
           dropdownUl.appendChild(dropdownLi);
